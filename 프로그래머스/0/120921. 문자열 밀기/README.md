@@ -2,6 +2,7 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120921) 
 
+- 몰랐던 함수: [ : -1]
 ### 성능 요약
 
 메모리: 9.2 MB, 시간: 0.01 ms
