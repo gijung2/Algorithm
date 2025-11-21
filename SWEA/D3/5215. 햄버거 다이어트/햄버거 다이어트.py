@@ -1,28 +1,27 @@
-from itertools import combinations
+T = int(input())
 
+for tc in range(1, T + 1):
+    N,L = map(int, input().split())
 
-T= int(input())
+    s=[]
+    k=[]
+    def dfs(i,taste,kcal):
+        global max_taste
+        if kcal >L:
+            return
+        if taste > max_taste:
+            max_taste = taste
+        if i == N:
+            return
 
-for tc in range(1, T+1):
-    N,L = map(int,input().split())
-    data = [list(map(int, input().split())) for _ in range(N)]
-
-    max_score = 0
-
-    for j in range(1, N+1):
-        for value in combinations(data,j):
-            score=0
-            kcal=0
-
-            for k in range(len(value)):
-                kcal+= value[k][1]
-                score+=value[k][0]
-
-            if kcal > L:
-                continue
-
-            if max_score < score:
-                max_score = score
-
-
-    print(f"#{tc} {max_score}")
+        dfs(i+1, taste+s[i], kcal +k[i])
+        dfs(i+1, taste, kcal)
+        
+    for _ in range(N):
+        score,kcal = map(int, input().split())
+        s.append(score)
+        k.append(kcal)
+        
+    max_taste = 0
+    dfs(0,0,0)
+    print(f"#{tc} {max_taste}")
