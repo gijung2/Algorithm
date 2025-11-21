@@ -1,0 +1,20 @@
+def dfs(n, tlst):
+    if n == M:
+        ans.append(tlst[:])
+        return
+
+    for j in range(N):
+        if v[j] == 0:
+            v[j] = 1
+            dfs(n+1, tlst + [lst[j]])
+            v[j] = 0
+
+
+N, M = map(int, input().split())
+lst = sorted(list(map(int, input().split())))
+ans = []
+v = [0] * N   # 바름
+
+dfs(0, [])
+for r in ans:
+    print(*r)
