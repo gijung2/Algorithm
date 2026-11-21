@@ -1,0 +1,5 @@
+N = int(input())
+
+side = 2**N + 1
+
+print(side*side)
